@@ -76,7 +76,7 @@ clean smoke_tests -Dselenide.browser=${BROWSER} -Dselenide.browserVersion=${BROW
 
 `Allure report` includes:
 - Test steps
-- Screenshot of the page
+- Screenshots of pages
 - Page source
 - Browser console logs
 - Video recording
@@ -132,4 +132,4 @@ After every launch, the Telegram bot sends a notification with an `Allure report
 <a id="video"></a>
 ## <img alt="Selenoid" height="25" src="./images/logos/Selenoid.svg" width="25"/></a> Test Execution Example
 
-<img alt="Video" src="./images/screenshots/TestExecutionExample.gif"
+<img alt="Video" src="./images/screenshots/TestExecutionExample.gif">
