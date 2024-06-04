@@ -10,10 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class MainPage {
 
     private final SelenideElement headerItemLinkProducts = $(byXpath("//*[@class='header__item__link' and text()='Продукты']")),
-            headerItemLinkEvents = $(byXpath("//*[@class='header__item__link' and text()='Мероприятия']")),
-            headerItemLinkBlog = $(byXpath("//*[@class='header__item__link' and text()='Блог']")),
-            headerItemLinkCompany = $(byXpath("//*[@class='header__item__link' and text()='Компания']")),
-            headerItemLinkContacts = $(byXpath("//*[@class='header__item__link' and text()='Контакты']"));
+            headerItemLinkCompany = $(byXpath("//*[@class='header__item__link' and text()='Компания']"));
 
 
     private final SelenideElement submitRequestButton = $(byXpath("//*[@class='header__btn__wrap js-openSend']"));

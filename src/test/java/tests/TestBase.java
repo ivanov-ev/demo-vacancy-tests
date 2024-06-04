@@ -18,8 +18,6 @@ public class TestBase {
         Configuration.baseUrl = "https://hflabs.ru";
         Configuration.pageLoadStrategy = "eager";
 
-        Configuration.timeout = 5000; //5 sec; default is 4 sec
-
         if (Configuration.remote != null) {
             Configuration.remote = "https://user1:1234@" + Configuration.remote + "/wd/hub";
         }
