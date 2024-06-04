@@ -55,13 +55,19 @@ public class MainPage {
     }
 
     @Step("Check the cookies bar is closed")
-    public void cookiesBarIsHidden() {
+    public MainPage cookiesBarIsHidden() {
         cookiesBar.shouldNotBe(visible);
+        return this;
+    }
+
+    @Step("Open the 'Products' top bar")
+    public MainPage openProductsTopBar() {
+        headerItemLinkProducts.click();
+        return this;
     }
 
     @Step("Check the 'Products' top bar content")
-    public void checkProductsTopBarTextsAndLinks() {
-        headerItemLinkProducts.click();
+    public MainPage checkProductsTopBarTextsAndLinks() {
         getHeaderItemLinkProductsFactor.shouldBe(visible);
         getHeaderItemLinkProductsSingleClient.shouldBe(visible);
         getHeaderItemLinkProductsSingleAddress.shouldBe(visible);
@@ -72,32 +78,51 @@ public class MainPage {
         getHeaderItemLinkProductsDaDaWebsite.shouldBe(visible);
         getHeaderItemLinkProductsAudit.shouldBe(visible);
         getHeaderItemLinkProductsMasker.shouldBe(visible);
+        return this;
+    }
+
+    @Step("Open the 'Company' top bar")
+    public MainPage openCompanyTopBar() {
+        headerItemLinkCompany.click();
+        return this;
     }
 
     @Step("Check the 'Company' top bar content")
-    public void checkCompanyTopBarTextsAndLinks() {
-        headerItemLinkCompany.click();
+    public MainPage checkCompanyTopBarTextsAndLinks() {
         headerItemLinkCompanyTeam.shouldBe(visible);
         headerItemLinkCompanyClients.shouldBe(visible);
         headerItemLinkCompanyCareer.shouldBe(visible);
         headerItemLinkCompanySocial.shouldBe(visible);
+        return this;
     }
 
     @Step("Click the request submission button")
-    public void clickRequestSubmissionButton() {
+    public MainPage clickRequestSubmissionButton() {
         submitRequestButton.click();
+        return this;
     }
 
-    @Step("Change language to EN")
+
+    @Step("Change the language to EN")
     public MainPage changeLanguageToEn() {
         changeLanguageToEnSelector.click();
+        return this;
+    }
+
+    @Step("Check the language = EN")
+    public MainPage checkLanguageIsEn() {
         pageTitleEn.should(exist);
         return this;
     }
 
-    @Step("Change language to RU")
+    @Step("Change the language to RU")
     public MainPage changeLanguageToRu() {
         changeLanguageToRuSelector.click();
+        return this;
+    }
+
+    @Step("Check the language = RU")
+    public MainPage checkLanguageIsRu() {
         pageTitleRu.should(exist);
         return this;
     }

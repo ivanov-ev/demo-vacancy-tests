@@ -32,8 +32,9 @@ public class MainPageTests extends TestBase {
     void checkFieldsOnSubmitRequestFormTest() {
         mainPage.openPage()
                 .clickRequestSubmissionButton();
-        submitRequestComponent.checkSubmissionForm();
-        submitRequestComponent.closeSubmissionForm();
+        submitRequestComponent.checkSubmissionForm()
+                .closeSubmissionForm()
+                .checkSubmissionFormIsClosed();
     }
 
     @Test
@@ -41,13 +42,16 @@ public class MainPageTests extends TestBase {
     void changeLanguageTest() {
         mainPage.openPage()
                 .changeLanguageToEn()
-                .changeLanguageToRu();
+                .checkLanguageIsEn()
+                .changeLanguageToRu()
+                .checkLanguageIsRu();
     }
 
     @Test
     @DisplayName("Click the 'Products' item in the top bar, and check its sub-menu's items and links")
     void checkProductsTopBarContentTest() {
         mainPage.openPage()
+                .openProductsTopBar()
                 .checkProductsTopBarTextsAndLinks();
     }
 
@@ -55,6 +59,7 @@ public class MainPageTests extends TestBase {
     @DisplayName("Click the 'Company' item in the top bar, and check its sub-menu's items and links")
     void checkCompanyTopBarContentTest() {
         mainPage.openPage()
+                .openCompanyTopBar()
                 .checkCompanyTopBarTextsAndLinks();
     }
 }

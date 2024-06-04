@@ -23,7 +23,7 @@ public class SubmitRequestComponent {
             submissionFormIsOpen = $(byXpath("//*[@class='buyForm' and @style='display: block; opacity: 1;']"));
 
     @Step("Check the submission form")
-    public void checkSubmissionForm() {
+    public SubmitRequestComponent checkSubmissionForm() {
         formTitle.shouldBe(visible);
         closeForm.shouldBe(visible);
         phoneLabel.shouldBe(visible);
@@ -34,11 +34,18 @@ public class SubmitRequestComponent {
         nameInput.shouldBe(visible);
         agreeLabel.shouldBe(visible);
         submitForm.shouldBe(visible);
+        return this;
     }
 
     @Step("Close the submission form using the 'x' icon")
-    public void closeSubmissionForm() {
+    public SubmitRequestComponent closeSubmissionForm() {
         closeForm.click();
+        return this;
+    }
+
+    @Step("Check the submission form is closed")
+    public SubmitRequestComponent checkSubmissionFormIsClosed() {
         submissionFormIsOpen.shouldNot(exist);
+        return this;
     }
 }
