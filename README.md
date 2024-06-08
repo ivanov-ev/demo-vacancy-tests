@@ -61,8 +61,15 @@ HFLabs provides customer data quality and data integration solutions and service
 ## Launch from the CLI
 
 **Local:**
+
+Using the host machine's web-browser:
 ```bash  
-./gradle clean smoke_tests
+./gradle clean smoke_tests -Denv=local
+```
+
+Using Selenoid:
+```bash  
+./gradle clean smoke_tests -Denv=remote
 ```
 
 **Remote launch in Jenkins:**
