@@ -64,12 +64,12 @@ HFLabs provides customer data quality and data integration solutions and service
 
 Using the host machine's web-browser:
 ```bash  
-./gradle clean smoke_tests -Denv=local
+gradle clean smoke_tests -Denv=local
 ```
 
 Using Selenoid:
 ```bash  
-./gradle clean smoke_tests -Denv=remote
+gradle clean smoke_tests -Denv=remote
 ```
 
 **Remote launch in Jenkins:**
