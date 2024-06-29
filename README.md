@@ -33,12 +33,24 @@ HFLabs provides customer data quality and data integration solutions and service
 
 <a id="scenarios"></a>
 ## Test Scenarios
+
+The main page:
 * [x] Click the close icon in the cookies bottom bar to close the bar (Automated)
 * [x] Click the request submission button to open the form, and check the form is displayed correctly and can be closed (Automated)
 * [x] Change the language, and check the language is changed on the main page (Automated)
 * [x] Click the 'Products' item in the top bar, and check its sub-menu's items and links (Automated)
 * [x] Click the 'Company' item in the top bar, and check its sub-menu's items and links (Automated)
+
+The event page:
+* [x] Test the radio button for event type selection, and event cards that appear on the right for this radio button
+* [x] Check an event card's content
+* [x] Check subsections of the event page
+* [x] Check the event subscription form content
+
+The blog page:
 * [x] Check the blog page: https://blog.hflabs.ru/ (Manual)
+
+The contacts page:
 * [x] Check the contacts page: https://hflabs.ru/contacts/ (Manual)
 
 ---
