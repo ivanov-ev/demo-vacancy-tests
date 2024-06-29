@@ -42,10 +42,10 @@ The main page:
 * [x] Click the 'Company' item in the top bar, and check its sub-menu's items and links (Automated)
 
 The event page:
-* [x] Test the radio button for event type selection, and event cards that appear on the right for this radio button
-* [x] Check an event card's content
-* [x] Check subsections of the event page
-* [x] Check the event subscription form content
+* [x] Test the radio button for event type selection, and event cards that appear on the right for this radio button (Automated)
+* [x] Check an event card's content (Automated)
+* [x] Check subsections of the event page (Automated)
+* [x] Check the event subscription form content (Automated)
 
 The blog page:
 * [x] Check the blog page: https://blog.hflabs.ru/ (Manual)
