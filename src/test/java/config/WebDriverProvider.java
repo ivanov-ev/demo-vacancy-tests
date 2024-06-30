@@ -11,11 +11,12 @@ public class WebDriverProvider {
         WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
 
         Configuration.browser = webDriverConfig.browser();
+
         Configuration.browserVersion = webDriverConfig.browserVersion();
         Configuration.browserSize = webDriverConfig.browserSize();
 
         //pay attention to the trailing slash, because it concatenates with open() and may result in 2 slashes
-        Configuration.baseUrl = "https://hflabs.ru";
+        Configuration.baseUrl =  webDriverConfig.baseUrl();
 
         Configuration.pageLoadStrategy = "eager";
 

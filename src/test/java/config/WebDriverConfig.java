@@ -26,4 +26,8 @@ public interface WebDriverConfig extends Config {
     @Key("selenide.password")
     @DefaultValue("1234")
     String remotePassword();
+
+    @Key("selenide.baseUrl")
+    @DefaultValue("https://hflabs.ru")
+    String baseUrl();
 }
