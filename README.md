@@ -1,4 +1,4 @@
-# Sample Test Automation Project in Java for the [HFLABS.RU](https://hflabs.ru/) Website
+# Sample Test Automation Project in Java for the [HFLABS.RU](https://hflabs.ru/) Website (UI Tests)
 
 ---
 
@@ -142,7 +142,7 @@ There is a task in `Jira` that contains references to Allure test cases and Allu
 
 <a id="telegram"></a>
 ## <img alt="Telegram" height="25" src="./images/logos/Telegram.svg" width="25"/></a> Telegram Bot Notifications
-After every launch, the Telegram bot sends a notification with an `Allure report`:
+After every launch in Jenkins, the Telegram bot sends a notification with an `Allure report`:
 
 <img alt="Bot" src="./images/screenshots/TelegramBot.png"> 
 
