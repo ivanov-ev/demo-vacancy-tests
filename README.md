@@ -4,7 +4,14 @@
 
 HFLabs provides customer data quality and data integration solutions and services in Russia. Founded in 2005.
 
-<a href="hhttps://hflabs.ru/"><img src="./images/logos/hflabs_logo.png"/></a>
+<a href="https://hflabs.ru/"><img src="./images/logos/hflabs_logo.png"/></a>
+
+> [!NOTE]
+> This is my final project for the 'Java Test Automation' course at <a href="https://qa.guru">QA.GURU</a>.
+> The project is provided as a demonstration of my skills in UI tests.
+> Keeping the project up to date is not guaranteed.
+>
+> Access to Jira, Jenkins, and AllureTestOps is managed by the <a href="https://qa.guru">QA.GURU</a> administration.
 
 ---
 
