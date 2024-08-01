@@ -16,8 +16,8 @@ import pages.MainPage;
 @DisplayName("Main page tests")
 public class MainPageTests extends TestBase {
 
-    MainPage mainPage = new MainPage();
-    SubmitRequestComponent submitRequestComponent = new SubmitRequestComponent();
+    final MainPage mainPage = new MainPage();
+    final SubmitRequestComponent submitRequestComponent = new SubmitRequestComponent();
 
     @Test
     @DisplayName("Click the close icon in the cookies bottom bar to close the bar")
@@ -41,10 +41,10 @@ public class MainPageTests extends TestBase {
     @DisplayName("Change the language, and check the language is changed on the main page")
     void changeLanguageTest() {
         mainPage.openPage()
-                .changeLanguageToEn()
-                .checkLanguageIsEn()
-                .changeLanguageToRu()
-                .checkLanguageIsRu();
+                .changeLanguage()
+                .checkLanguage("EN")
+                .changeLanguage()
+                .checkLanguage("RU");
     }
 
     @Test

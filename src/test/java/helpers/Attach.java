@@ -8,13 +8,14 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selenide.sessionId;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
-
+import static tests.TestBase.logger;
 
 public class Attach {
 
@@ -39,12 +40,11 @@ public class Attach {
                     "Browser console logs",
                     String.join("\n", Selenide.getWebDriverLogs(BROWSER))
             );
-        }
-        else {
+        } else {
             attachAsText("Browser console logs",
                     String.join("\n",
                             "Attention! Browser console logs cannot be collected in Firefox." +
-                            "\nPlease use Chrome if logs are required")
+                                    "\nPlease use Chrome if logs are required")
             );
         }
     }
@@ -57,17 +57,19 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        URI uri = null;
+        URI uri;
         String host = null;
         try {
             uri = new URI(Configuration.remote);
             host = uri.getHost();
-        } catch (Exception e) {System.out.println(e.getMessage());}
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
         String videoUrl = "https://" + host + "/video/" + sessionId() + ".mp4";
         try {
-            return new URL(videoUrl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+            return new URI(videoUrl).toURL();
+        } catch (MalformedURLException | URISyntaxException e) {
+            logger.error(e.getMessage());
         }
         return null;
     }

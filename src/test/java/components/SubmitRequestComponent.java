@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SubmitRequestComponent {
 
-    private final SelenideElement formTitle =  $(byXpath("//*[@class='buyForm__title']")),
+    private final SelenideElement formTitle = $(byXpath("//*[@class='buyForm__title']")),
             closeForm = $(byXpath("//*[@class='buyForm__btnClose btnCross']")),
             phoneLabel = $(byXpath("//*[@class='buyForm__form__label' and @for=\"phone\"]")),
             phoneInput = $(byXpath("//*[@class='buyForm__form__input' and @type=\"tel\"]")),
@@ -19,7 +19,7 @@ public class SubmitRequestComponent {
             nameLabel = $(byXpath("//*[@class='buyForm__form__label' and @for=\"name\"]")),
             nameInput = $(byXpath("//*[@id='fullname']")),
             agreeLabel = $(byXpath("//*[@name='agree']")),
-            submitForm =  $(byXpath("//*[@name='submit']")),
+            submitForm = $(byXpath("//*[@name='submit']")),
             submissionFormIsOpen = $(byXpath("//*[@class='buyForm' and @style='display: block; opacity: 1;']"));
 
     @Step("Check the submission form")

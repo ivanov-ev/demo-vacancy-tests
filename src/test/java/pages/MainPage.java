@@ -9,38 +9,35 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    private final SelenideElement headerItemLinkProducts = $(byXpath("//*[@class='header__item__link' and text()='Продукты']")),
-            headerItemLinkCompany = $(byXpath("//*[@class='header__item__link' and text()='Компания']"));
-
+    private final SelenideElement headerProducts = $(byXpath("(//*[@class='header__item__link'])[2]")),
+            headerCompany = $(byXpath("(//*[@class='header__item__link'])[5]"));
 
     private final SelenideElement submitRequestButton = $(byXpath("//*[@class='header__btn__wrap js-openSend']"));
 
-    private final SelenideElement getHeaderItemLinkProductsFactor = $(byXpath("//*[@class='header__item__inner']/a[text()='«Фактор»' and @href=\"/factor/\"]")),
-            getHeaderItemLinkProductsSingleClient = $(byXpath("//*[@class='header__item__inner']/a[text()='«Единый клиент»' and @href=\"/uniform-client/\"]")),
-            getHeaderItemLinkProductsSingleAddress = $(byXpath("//*[@class='header__item__inner']/a[text()='«Единый адрес»' and @href=\"/address/\"]")),
-            getHeaderItemLinkProductsKnowYourCustomer = $(byXpath("//*[@class='header__item__inner']/a[text()='Know Your Customer' and @href=\"/kyc/\"]")),
-            getHeaderItemLinkProductsEcosystemClient = $(byXpath("//*[@class='header__item__inner']/a[text()='«Экосистемный клиент»' and @href=\"/federativnuy-cdi/\"]")),
-            getHeaderItemLinkProductsConsentManagementCenter = $(byXpath("//*[@class='header__item__inner']/a[text()='«Центр управления согласиями»' and @href=\"/cus/\"]")),
-            getHeaderItemLinkProductsSingleHints = $(byXpath("//*[@class='header__item__inner']/a[text()[contains(.,'«Подсказки»')] and @href=\"https://dadata.ru/suggestions/\"]")),
-            getHeaderItemLinkProductsDaDaWebsite = $(byXpath("//*[@class='header__item__inner']/a[text()[contains(.,'DaData.ru')] and @href=\"https://dadata.ru\"]")),
-            getHeaderItemLinkProductsAudit = $(byXpath("//*[@class='header__item__inner']/a[text()='Аудит' and @href=\"/audit/\"]")),
-            getHeaderItemLinkProductsMasker = $(byXpath("//*[@class='header__item__inner']/a[text()='«Маскировщик»' and @href=\"/masking/\"]"));
+    final String partialPathToMenuItem = "./following-sibling::div/ul/li[@class='header__item__inner']";
 
-    private final SelenideElement headerItemLinkCompanyTeam = $(byXpath("//*[@class='header__item__inner']/a[text()='Команда' and @href=\"/about/\"]")),
-            headerItemLinkCompanyClients = $(byXpath("//*[@class='header__item__inner']/a[text()='Клиенты' and @href=\"/clients/\"]")),
-            headerItemLinkCompanyCareer = $(byXpath("//*[@class='header__item__inner']/a[text()='Карьера' and @href=\"https://career.hflabs.ru/\"]")),
-            headerItemLinkCompanySocial = $(byXpath("//*[@class='header__item__inner']/a[text()='Социальные проекты' and @href=\"https://career.hflabs.ru/social\"]"));
+    private final SelenideElement getHeaderItemLinkProductsFactor = headerProducts.$(byXpath(partialPathToMenuItem + "[1]/a")),
+            getHeaderItemLinkProductsSingleClient = headerProducts.$(byXpath(partialPathToMenuItem + "[2]/a")),
+            getHeaderItemLinkProductsSingleAddress = headerProducts.$(byXpath(partialPathToMenuItem + "[3]/a")),
+            getHeaderItemLinkProductsKnowYourCustomer = headerProducts.$(byXpath(partialPathToMenuItem + "[4]/a")),
+            getHeaderItemLinkProductsEcosystemClient = headerProducts.$(byXpath(partialPathToMenuItem + "[5]/a")),
+            getHeaderItemLinkProductsConsentManagementCenter = headerProducts.$(byXpath(partialPathToMenuItem + "[6]/a")),
+            getHeaderItemLinkProductsSingleHints = headerProducts.$(byXpath(partialPathToMenuItem + "[7]/a")),
+            getHeaderItemLinkProductsDaDaWebsite = headerProducts.$(byXpath(partialPathToMenuItem + "[8]/a")),
+            getHeaderItemLinkProductsAudit = headerProducts.$(byXpath(partialPathToMenuItem + "[9]/a")),
+            getHeaderItemLinkProductsMasker = headerProducts.$(byXpath(partialPathToMenuItem + "[10]/a"));
 
-    private final SelenideElement changeLanguageToRuSelector = $(byXpath("//*[contains(@class, \"header__lang\")]/a[text()='Ru']")),
-            changeLanguageToEnSelector = $(byXpath("//*[contains(@class, \"header__lang\")]/a[text()='En']"));
+    private final SelenideElement headerItemLinkCompanyTeam = headerCompany.$(byXpath(partialPathToMenuItem + "[1]/a")),
+            headerItemLinkCompanyClients = headerCompany.$(byXpath(partialPathToMenuItem + "[2]/a")),
+            headerItemLinkCompanyCareer = headerCompany.$(byXpath(partialPathToMenuItem + "[3]/a")),
+            headerItemLinkCompanySocial = headerCompany.$(byXpath(partialPathToMenuItem + "[4]/a"));
 
-    private final SelenideElement pageTitleRu = $(byTagAndText("title", "HFLabs — умные решения data quality и master data management")),
-            pageTitleEn = $(byTagAndText("title", "HFLabs - smart data quality and master data management solution"));
+    private final SelenideElement changeToDifferentLanguageSelector = $(byXpath("//*[contains(@class, \"header__lang\")]/a"));
+
+    private final SelenideElement pageTitle = $("title");
 
     private final SelenideElement cookiesBar = $(byXpath("//*[@class='cookies cookies__opened']")),
             cookiesCloseButton = $(byXpath("//button[@class='cookie__close']"));
-
-
 
     @Step("Open the main page")
     public MainPage openPage() {
@@ -62,7 +59,7 @@ public class MainPage {
 
     @Step("Open the 'Products' top bar")
     public MainPage openProductsTopBar() {
-        headerItemLinkProducts.click();
+        headerProducts.click();
         return this;
     }
 
@@ -83,7 +80,7 @@ public class MainPage {
 
     @Step("Open the 'Company' top bar")
     public MainPage openCompanyTopBar() {
-        headerItemLinkCompany.click();
+        headerCompany.click();
         return this;
     }
 
@@ -102,28 +99,24 @@ public class MainPage {
         return this;
     }
 
-
-    @Step("Change the language to EN")
-    public MainPage changeLanguageToEn() {
-        changeLanguageToEnSelector.click();
+    @Step("Check the language = {language}")
+    public MainPage checkLanguage(String language) {
+        switch (language.toUpperCase()) {
+            case "RU": {
+                pageTitle.shouldHave(innerText("HFLabs — умные решения data quality и master data management"));
+                break;
+            }
+            case "EN": {
+                pageTitle.shouldHave(innerText("HFLabs - smart data quality and master data management solution"));
+                break;
+            }
+        }
         return this;
     }
 
-    @Step("Check the language = EN")
-    public MainPage checkLanguageIsEn() {
-        pageTitleEn.should(exist);
-        return this;
-    }
-
-    @Step("Change the language to RU")
-    public MainPage changeLanguageToRu() {
-        changeLanguageToRuSelector.click();
-        return this;
-    }
-
-    @Step("Check the language = RU")
-    public MainPage checkLanguageIsRu() {
-        pageTitleRu.should(exist);
+    @Step("Change the language")
+    public MainPage changeLanguage() {
+        changeToDifferentLanguageSelector.click();
         return this;
     }
 }

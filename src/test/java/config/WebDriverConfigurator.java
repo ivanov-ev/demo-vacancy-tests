@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
-public class WebDriverProvider {
+public class WebDriverConfigurator {
     public static void initConfiguration() {
         WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
 
@@ -16,7 +16,7 @@ public class WebDriverProvider {
         Configuration.browserSize = webDriverConfig.browserSize();
 
         //pay attention to the trailing slash, because it concatenates with open() and may result in 2 slashes
-        Configuration.baseUrl =  webDriverConfig.baseUrl();
+        Configuration.baseUrl = webDriverConfig.baseUrl();
 
         Configuration.pageLoadStrategy = "eager";
 
@@ -34,7 +34,7 @@ public class WebDriverProvider {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,
-                "enableVideo",true
+                "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
     }

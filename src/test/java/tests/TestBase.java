@@ -1,17 +1,21 @@
 package tests;
 
-import config.WebDriverProvider;
+import config.WebDriverConfigurator;
 import helpers.Attach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
 
+    public static final Logger logger = LoggerFactory.getLogger(TestBase.class);
+
     @BeforeAll
     static void setup() {
-        WebDriverProvider.initConfiguration();
+        WebDriverConfigurator.initConfiguration();
     }
 
     @AfterEach

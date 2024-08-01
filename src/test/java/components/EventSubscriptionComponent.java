@@ -11,12 +11,12 @@ import static com.codeborne.selenide.Selenide.$$;
 public class EventSubscriptionComponent {
 
     private final SelenideElement eventsSubscribeTitle = $(byXpath("//*[@class='events-subscribe__title']")),
-        eventsSubscribeText = $(byXpath("//*[@class='events-subscribe__text']")),
-        eventsSubscribeTextEmailInput = $(byXpath("//*[@class='events-subscribe__input']")),
-        eventsSubscribeSubmitButton = $(byXpath("//*[@class='events-subscribe__button']")),
-        eventsSubscribeCheckboxAgreeContainer = $(byXpath("//*[@class='checkbox__container']")),
-        eventsSubscribeCheckboxAgreeContainerLink = $(byXpath("//*[@class='checkbox__container']//a")),
-        eventsSubscribeConfirmationText = $(byXpath("//div[contains(@class, 'subscribeP__bottom-text')]"));
+            eventsSubscribeText = $(byXpath("//*[@class='events-subscribe__text']")),
+            eventsSubscribeTextEmailInput = $(byXpath("//*[@class='events-subscribe__input']")),
+            eventsSubscribeSubmitButton = $(byXpath("//*[@class='events-subscribe__button']")),
+            eventsSubscribeCheckboxAgreeContainer = $(byXpath("//*[@class='checkbox__container']")),
+            eventsSubscribeCheckboxAgreeContainerLink = $(byXpath("//*[@class='checkbox__container']//a")),
+            eventsSubscribeConfirmationText = $(byXpath("//div[contains(@class, 'subscribeP__bottom-text')]"));
     private final ElementsCollection eventsSubscribeConfirmationTextLink = $$(byXpath("//div[contains(@class, 'subscribeP__bottom-text')]//a"));
 
     @Step("Check the content of the event subscription form")
