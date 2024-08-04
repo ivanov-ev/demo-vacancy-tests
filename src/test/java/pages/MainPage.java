@@ -9,28 +9,40 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    private final SelenideElement headerProducts = $(byXpath("(//*[@class='header__item__link'])[2]")),
-            headerCompany = $(byXpath("(//*[@class='header__item__link'])[5]"));
+    private final SelenideElement headerProducts = $(byXpath("//a[@class='header__item__link' and text()='Продукты']")),
+            headerCompany = $(byXpath("//a[@class='header__item__link' and text()='Компания']"));
 
     private final SelenideElement submitRequestButton = $(byXpath("//*[@class='header__btn__wrap js-openSend']"));
 
-    final String partialPathToMenuItem = "./following-sibling::div/ul/li[@class='header__item__inner']";
+    private final SelenideElement headerItemLinkProductsFactor = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='«Фактор»']")),
+            headerItemLinkProductsSingleClient = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='«Единый клиент»']")),
+            headerItemLinkProductsSingleAddress = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='«Единый адрес»']")),
+            headerItemLinkProductsKnowYourCustomer = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='Know Your Customer']")),
+            headerItemLinkProductsEcosystemClient = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='«Экосистемный клиент»']")),
+            headerItemLinkProductsConsentManagementCenter = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='«Центр управления согласиями»']")),
+            headerItemLinkProductsSingleHints = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='«Подсказки» ']")),
+            headerItemLinkProductsDaDaWebsite = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='DaData.ru ']")),
+            headerItemLinkProductsAudit = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='Аудит']")),
+            headerItemLinkProductsMasker = $(byXpath("//a[@class='header__item__link' and text()='Продукты']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='«Маскировщик»']"));
 
-    private final SelenideElement getHeaderItemLinkProductsFactor = headerProducts.$(byXpath(partialPathToMenuItem + "[1]/a")),
-            getHeaderItemLinkProductsSingleClient = headerProducts.$(byXpath(partialPathToMenuItem + "[2]/a")),
-            getHeaderItemLinkProductsSingleAddress = headerProducts.$(byXpath(partialPathToMenuItem + "[3]/a")),
-            getHeaderItemLinkProductsKnowYourCustomer = headerProducts.$(byXpath(partialPathToMenuItem + "[4]/a")),
-            getHeaderItemLinkProductsEcosystemClient = headerProducts.$(byXpath(partialPathToMenuItem + "[5]/a")),
-            getHeaderItemLinkProductsConsentManagementCenter = headerProducts.$(byXpath(partialPathToMenuItem + "[6]/a")),
-            getHeaderItemLinkProductsSingleHints = headerProducts.$(byXpath(partialPathToMenuItem + "[7]/a")),
-            getHeaderItemLinkProductsDaDaWebsite = headerProducts.$(byXpath(partialPathToMenuItem + "[8]/a")),
-            getHeaderItemLinkProductsAudit = headerProducts.$(byXpath(partialPathToMenuItem + "[9]/a")),
-            getHeaderItemLinkProductsMasker = headerProducts.$(byXpath(partialPathToMenuItem + "[10]/a"));
-
-    private final SelenideElement headerItemLinkCompanyTeam = headerCompany.$(byXpath(partialPathToMenuItem + "[1]/a")),
-            headerItemLinkCompanyClients = headerCompany.$(byXpath(partialPathToMenuItem + "[2]/a")),
-            headerItemLinkCompanyCareer = headerCompany.$(byXpath(partialPathToMenuItem + "[3]/a")),
-            headerItemLinkCompanySocial = headerCompany.$(byXpath(partialPathToMenuItem + "[4]/a"));
+    private final SelenideElement headerItemLinkCompanyTeam = $(byXpath("//a[@class='header__item__link' and text()='Компания']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='Команда']")),
+            headerItemLinkCompanyClients = $(byXpath("//a[@class='header__item__link' and text()='Компания']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='Клиенты']")),
+            headerItemLinkCompanyCareer = $(byXpath("//a[@class='header__item__link' and text()='Компания']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='Карьера']")),
+            headerItemLinkCompanySocial = $(byXpath("//a[@class='header__item__link' and text()='Компания']" +
+                    "/following-sibling::div/ul/li[@class='header__item__inner']/a[text()='Социальные проекты']"));
 
     private final SelenideElement changeToDifferentLanguageSelector = $(byXpath("//*[contains(@class, \"header__lang\")]/a"));
 
@@ -65,16 +77,16 @@ public class MainPage {
 
     @Step("Check the 'Products' top bar content")
     public MainPage checkProductsTopBarTextsAndLinks() {
-        getHeaderItemLinkProductsFactor.shouldBe(visible);
-        getHeaderItemLinkProductsSingleClient.shouldBe(visible);
-        getHeaderItemLinkProductsSingleAddress.shouldBe(visible);
-        getHeaderItemLinkProductsKnowYourCustomer.shouldBe(visible);
-        getHeaderItemLinkProductsEcosystemClient.shouldBe(visible);
-        getHeaderItemLinkProductsConsentManagementCenter.shouldBe(visible);
-        getHeaderItemLinkProductsSingleHints.shouldBe(visible);
-        getHeaderItemLinkProductsDaDaWebsite.shouldBe(visible);
-        getHeaderItemLinkProductsAudit.shouldBe(visible);
-        getHeaderItemLinkProductsMasker.shouldBe(visible);
+        headerItemLinkProductsFactor.shouldBe(visible);
+        headerItemLinkProductsSingleClient.shouldBe(visible);
+        headerItemLinkProductsSingleAddress.shouldBe(visible);
+        headerItemLinkProductsKnowYourCustomer.shouldBe(visible);
+        headerItemLinkProductsEcosystemClient.shouldBe(visible);
+        headerItemLinkProductsConsentManagementCenter.shouldBe(visible);
+        headerItemLinkProductsSingleHints.shouldBe(visible);
+        headerItemLinkProductsDaDaWebsite.shouldBe(visible);
+        headerItemLinkProductsAudit.shouldBe(visible);
+        headerItemLinkProductsMasker.shouldBe(visible);
         return this;
     }
 

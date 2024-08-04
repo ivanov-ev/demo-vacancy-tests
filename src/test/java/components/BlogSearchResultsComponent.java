@@ -51,11 +51,7 @@ public class BlogSearchResultsComponent {
             logger.info("Title = " + entry.getKey());
             boolean descriptionContainsSearchText = entry.getValue().toLowerCase().contains(searchQuery.toLowerCase());
             logger.info("Description = " + entry.getValue());
-            if (mustContainSearchText) {
-                Assertions.assertTrue(titleContainsSearchText || descriptionContainsSearchText);
-            } else {
-                Assertions.assertFalse(titleContainsSearchText || descriptionContainsSearchText);
-            }
+            Assertions.assertEquals(mustContainSearchText, titleContainsSearchText || descriptionContainsSearchText);
         }
     }
 }
