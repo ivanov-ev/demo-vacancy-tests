@@ -54,14 +54,20 @@ The main page:
 
 The event page:
 
-* [x] Test the radio button for event type selection, and event cards that appear on the right for this radio button (
-  Automated)
+* [x] Test the 'All' radio button, and event cards that appear on the right (Automated)
+* [x] Test the 'Webinar' radio button, and event cards that appear on the right (Automated)
+* [x] Test the 'Conference' radio button, and event cards that appear on the right (Automated)
+* [x] Test the 'Course' radio button, and event cards that appear on the right (Automated)
+* [x] Test the 'Archive' radio button, and event cards that appear on the right (Automated)
+* [x] Check that the 'Archive' radio contains every event type (Automated)
 * [x] Check an event card's content (Automated)
 * [x] Check subsections of the event page (Automated)
 * [x] Check the event subscription form content (Automated)
 
 The blog page:
 
+* [x] Open the blog page, use the search field, and check found articles (Automated)
+* [x] Open the blog page, use the search field, and check that nothing found (Automated)
 * [x] Check the blog page: https://blog.hflabs.ru/ (Manual)
 
 The contacts page:
