@@ -24,12 +24,14 @@ public class BlogSearchResultsComponent {
 
     @Step("Check the search result title text when some results are found")
     public void checkSuccessfulSearchTitle(String searchQuery) {
+        searchResultTitleText.shouldBe(visible);
         String text = searchResultTitleText.innerText();
         Assertions.assertTrue(text.contains("По вашему запросу") && text.contains(searchQuery));
     }
 
     @Step("Check the search result title text when nothing is found")
     public void checkNothingFoundSearchTitle() {
+        searchResultTitleText.shouldBe(visible);
         String text = searchResultTitleText.innerText();
         Assertions.assertTrue(text.contains("Мы ничего не нашли по этому запросу"));
     }
